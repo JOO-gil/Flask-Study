@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- CSS styles for the form layout -->
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin-top: 50px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1rem;
+      width: 200px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    form {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Form to collect user input -->
+  <form method="POST" action="/submit">
+    <!-- Text input for username -->
+    <input type="text" name="username" placeholder="Enter your name"><br>
+
+    <!--submit button -->
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
