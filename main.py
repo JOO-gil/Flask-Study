@@ -6,15 +6,15 @@ posts = []
 
 @app.route('/')
 def home():
-    return redirect(url_for('board'))
+    return redirect(url_for('board')) # root → board
 
 @app.route('/board')
 def board():
-    return render_template('board.html', posts=posts)
+    return render_template('board.html', posts=posts) # list posts
 
 @app.route('/write', methods=['GET'])
 def write_form():
-    return render_template('write.html', error=None)
+    return render_template('write.html', error=None) # show form
 
 @app.route('/write', methods=['POST'])
 def write_post():
@@ -23,15 +23,15 @@ def write_post():
 
     if not title or not content:
         error = '⚠️ write title and contents'
-        return render_template('write.html', error=error)
+        return render_template('write.html', error=error)  # simple error massage
 
     posts.append({
         'id':       len(posts) + 1,
         'title':    title,
         'content':  content
-    })
+    }) # add post
 
-    return redirect(url_for('board'))
+    return redirect(url_for('board')) # back to board
 
 if __name__=='__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

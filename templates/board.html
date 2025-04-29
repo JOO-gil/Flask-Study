@@ -10,6 +10,7 @@
 
     {% if posts %}
     <ul>
+      <!-- list each post -->
       {% for post in posts %}
       <li>
         <strong>{{ post.id}}. {{ post.title}}</strong><br />
@@ -18,6 +19,7 @@
       {% endfor %}
     </ul>
     {% else %}
+    <!-- no posts yet message -->
     <p>There is no posts yet</p>
     {% endif %}
 
