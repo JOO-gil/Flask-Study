@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
+ERROR_EMPTY = '⚠️ WRITE TILTE AND CONTENTS'
+
 posts = []
 
 @app.route('/')
@@ -22,8 +24,9 @@ def write_post():
     content =request.form.get('content','').strip()
 
     if not title or not content:
-        error = '⚠️ write title and contents'
-        return render_template('write.html', error=error)  # simple error massage
+        # Server-Side Validation Error Messages
+        return render_template('write.html', error=ERROR_EMPTY)  
+        # simple error massage
 
     posts.append({
         'id':       len(posts) + 1,

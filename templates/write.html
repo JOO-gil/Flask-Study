@@ -22,11 +22,11 @@
     <form action="{{ url_for('write_post')}}" method="POST">
       <p>
         <label for="title">TITLE:</label><br />
-        <input type="text" id="title" name="title" required />
+        <input type="text" id="title" name="title" />
       </p>
       <p>
         <label for="content">CONTENT:</label><br />
-        <textarea id="content" name="content" rows="5" required></textarea>
+        <textarea id="content" name="content" rows="5"></textarea>
       </p>
       
       <button type="submit">SUBMIT</button>
