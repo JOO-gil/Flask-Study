@@ -52,9 +52,13 @@ ul {
 
 .error {
   color: red;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
-  text-aligin: center;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: #ffe6e6;
 }
 
 li {
