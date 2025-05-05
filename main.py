@@ -29,7 +29,7 @@ def write_post():
     content = request.form.get('content', '').strip()
 
     if not title or not content:
-        # Server-Side Validation Error Messages
+        flash('Please enter')
         return render_template('write.html', error=ERROR_EMPTY)
 
         # simple error massage
