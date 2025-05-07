@@ -43,7 +43,8 @@ button:hover {
   background: #45a049;
 }
 
-ul {
+/* Scope list styling to write form only: applies to the UL immediately after the form */
+form + ul {
   list-style: none;
   padding: 0;
   max-width: 600px;
@@ -76,4 +77,44 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Card styling for desktop: three cards per row */
+.card {
+  box-sizing: border-box;
+  flex: 0 1 calc((100% - 2%) / 3);
+  background: #fff;
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Tablet: two cards per row */
+@media (max-width: 900px) {
+  .card {
+    flex: 0 1 calc((100% - 1%) / 2);
+  }
+}
+
+/* Mobile: one card per row */
+@media (max-width: 600px) {
+  .card {
+    flex: 0 1 100%;
+  }
+  .board-container {
+    padding: 1em;
+  }
+}
+
+.board-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+
+  width: 100%;
+  max-width: none;
+
+  padding: 1em 2em;
+  list-style: none;
+  margin: 0 auto;
 }

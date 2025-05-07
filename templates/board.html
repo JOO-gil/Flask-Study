@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Ensure the page scales correctly on mobile devices by setting the viewport width to the device’s width and the initial zoom level -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>POST BOARD</title>
     <link
@@ -13,17 +15,15 @@
     <h1>POST BOARD LIST</h1>
 
     {% if posts %}
-    <ul>
-      <!-- list each post -->
+    <ul class="board-container">
       {% for post in posts %}
-      <li>
+      <li class="card">
         <strong>{{ post.id}}. {{ post.title}}</strong><br />
         {{ post.content}}
       </li>
       {% endfor %}
     </ul>
     {% else %}
-    <!-- no posts yet message -->
     <p>There are no posts yet</p>
     {% endif %}
 

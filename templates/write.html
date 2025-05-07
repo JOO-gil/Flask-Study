@@ -12,13 +12,9 @@
   <body>
     <h1>Create a new post</h1>
 
-    {# Display error if present #} 
-
-    {% if error %}
+    {# Display error if present #} {% if error %}
     <p class="error">{{ error}}</p>
-    {% endif %} 
-
-    {#Post creation form #}
+    {% endif %} {#Post creation form #}
     <form action="{{ url_for('write_post')}}" method="POST">
       <p>
         <label for="title">TITLE:</label><br />

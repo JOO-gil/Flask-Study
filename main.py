@@ -33,9 +33,9 @@ def write_post():
         # simple error massage
 
     posts.append({
-        'id': len(posts) + 1,
-        'title': title,
-        'content': content
+        'id':       len(posts) + 1,
+        'title':    title,
+        'content':  content
     })  # add post
 
     return redirect(url_for('board'))  # back to board
