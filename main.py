@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 ERROR_EMPTY = '⚠️ WRITE TILTE AND CONTENTS ⚠️'
 
+
 posts = []
 
 
@@ -35,8 +36,11 @@ def write_post():
     if not title or not content:
         # Server-Side Validation Error Messages
         return render_template('write.html', error=ERROR_EMPTY)
+<<<<<<< HEAD
         # simple error massage
 
+=======
+>>>>>>> 44336e3 (Sandbox snapshot commit)
 
     posts.append({
         'id':       len(posts) + 1,
