@@ -103,17 +103,21 @@ a:hover {
 /* Tablet: two cards per row */
 @media (max-width: 900px) {
   .card {
+
     flex: 0 1 calc((100% - 1%) / 2);
+
   }
 }
 
 /* Mobile: one card per row */
 @media (max-width: 600px) {
   .card {
+
     flex: 0 1 100%;
   }
   .board-container {
     padding: 1em;
+
   }
 }
 
