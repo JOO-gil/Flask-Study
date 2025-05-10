@@ -9,6 +9,7 @@ posts = []
 @app.route('/')
 def home():
 
+
     return redirect(url_for('board'))  # root → board
 
 @app.route('/board')
@@ -19,9 +20,10 @@ def board():
 def write_form():
     return render_template('write.html', error=None)  # show form
 
+
 @app.route('/write', methods=['GET'])
 def write_form():
-    return render_template('write.html', error=None)
+    return render_template('write.html', error=None) # show form
 
 @app.route('/write', methods=['POST'])
 def write_post():
@@ -29,8 +31,9 @@ def write_post():
     content = request.form.get('content', '').strip()
 
     if not title or not content:
-        flash(ERROR_EMPTY)
-        return render_template('write.html', error=ERROR_EMPTY)
+        # Server-Side Validation Error Messages
+        return render_template('write.html', error=ERROR_EMPTY)  
+       
 
         # simple error massage
     posts.append({
@@ -39,6 +42,7 @@ def write_post():
         'content':  content
 
     })  # add post
+
 
     return redirect(url_for('board'))  # back to board
 

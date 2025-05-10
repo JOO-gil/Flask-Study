@@ -13,14 +13,13 @@
   <body>
     <h1>Create a new post</h1>
 
-    {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul class="flash-list">
-      {% for msg in messages %}
-      <li class="flash-items">{{msg}}</li>
-      {% endfor %}
-    </ul>
-    {% end if %} {% endwith %}
-
+    {# Display error if present #} 
+    
+    {% if error %}
+    <p class="error">{{ error}}</p>
+    {% endif %} 
+    
+    {#Post creation form #}
     <form action="{{ url_for('write_post')}}" method="POST">
       <p>
         <label for="title">TITLE:</label><br />
@@ -30,12 +29,12 @@
         <label for="content">CONTENT:</label><br />
         <textarea id="content" name="content" rows="5"></textarea>
       </p>
-
+      
       <button type="submit">SUBMIT</button>
     </form>
 
     <p><a href="{{url_for('board')}}">← BACK TO LIST</a></p>
   </body>
-</html>
 
+</html>
 
