@@ -69,7 +69,6 @@ form + ul {
 }
 
 .flash-item {
-
   background-color: #ffe6e6;
 }
 
@@ -103,21 +102,17 @@ a:hover {
 /* Tablet: two cards per row */
 @media (max-width: 900px) {
   .card {
-
     flex: 0 1 calc((100% - 1%) / 2);
-
   }
 }
 
 /* Mobile: one card per row */
 @media (max-width: 600px) {
   .card {
-
     flex: 0 1 100%;
   }
   .board-container {
     padding: 1em;
-
   }
 }
 
@@ -130,5 +125,4 @@ a:hover {
   padding: 1em 2em;
   list-style: none;
   margin: 0 auto;
-
 }
