@@ -4,25 +4,20 @@ app = Flask(__name__)
 
 ERROR_EMPTY = '⚠️ WRITE TILTE AND CONTENTS ⚠️'
 
-
 posts = []
-
 
 @app.route('/')
 def home():
 
     return redirect(url_for('board'))  # root → board
 
-
 @app.route('/board')
 def board():
     return render_template('board.html', posts=posts)  # list posts
 
-
 @app.route('/write', methods=['GET'])
 def write_form():
     return render_template('write.html', error=None)  # show form
-
 
 @app.route('/write', methods=['GET'])
 def write_form():
@@ -36,12 +31,8 @@ def write_post():
     if not title or not content:
         # Server-Side Validation Error Messages
         return render_template('write.html', error=ERROR_EMPTY)
-<<<<<<< HEAD
+
         # simple error massage
-
-=======
->>>>>>> 44336e3 (Sandbox snapshot commit)
-
     posts.append({
         'id':       len(posts) + 1,
         'title':    title,
