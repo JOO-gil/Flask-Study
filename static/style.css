@@ -119,11 +119,11 @@ a:hover {
   }
 }
 
-
 .board-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1%;
+
   width: 100%;
   max-width: none;
   padding: 1em 2em;
