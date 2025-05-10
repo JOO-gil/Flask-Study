@@ -26,6 +26,10 @@ def write_form():
     return render_template('write.html', error=None)  # show form
 
 
+@app.route('/write', methods=['GET'])
+def write_form():
+    return render_template('write.html', error=None)
+
 @app.route('/write', methods=['POST'])
 def write_post():
     title = request.form.get('title', '').strip()

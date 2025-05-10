@@ -17,8 +17,10 @@
     <h1>POST BOARD LIST</h1>
 
 
+
     {% if posts %}
     <ul class="board-container">
+
       {% for post in posts %}
       <li class="card">
 
@@ -28,8 +30,10 @@
       {% endfor %}
     </ul>
 
+
     {% else %}
     <p>There are no posts yet</p>
+
 
     {% endif %}
 
