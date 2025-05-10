@@ -1,4 +1,11 @@
 body {
+<<<<<<< HEAD
+=======
+  outline: 5px solid red;
+}
+
+body {
+>>>>>>> fb178d6 (Sandbox snapshot commit)
   font-family: Arial, sans-serif;
   margin: 20px;
   background-color: #f9f9f9;
@@ -14,13 +21,19 @@ form {
   margin: 20px auto;
   background: #fff;
   padding: 20px;
+<<<<<<< HEAD
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+=======
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0.1);
+>>>>>>> fb178d6 (Sandbox snapshot commit)
 }
 
 input[type="text"],
 textarea {
   width: 100%;
+<<<<<<< HEAD
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -45,12 +58,27 @@ button:hover {
 
 /* Scope list styling to write form only: applies to the UL immediately after the form */
 form + ul {
+=======
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background: #218838;
+}
+
+ul {
+>>>>>>> fb178d6 (Sandbox snapshot commit)
   list-style: none;
   padding: 0;
   max-width: 600px;
   margin: 20px auto;
 }
 
+<<<<<<< HEAD
 .error {
   color: red;
   margin-bottom: 15px;
@@ -62,12 +90,18 @@ form + ul {
   background-color: #ffe6e6;
 }
 
+=======
+>>>>>>> fb178d6 (Sandbox snapshot commit)
 li {
   background: #fff;
   margin-bottom: 12px;
   padding: 12px;
   border-radius: 4px;
+<<<<<<< HEAD
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+=======
+  box-shadow: 0 1px 3px rgba(0.1);
+>>>>>>> fb178d6 (Sandbox snapshot commit)
 }
 
 a {
@@ -79,6 +113,7 @@ a:hover {
   text-decoration: underline;
 }
 
+<<<<<<< HEAD
 /* Card styling for desktop: three cards per row */
 .card {
   box-sizing: border-box;
@@ -118,3 +153,10 @@ a:hover {
   list-style: none;
   margin: 0 auto;
 }
+=======
+p.error {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+>>>>>>> fb178d6 (Sandbox snapshot commit)
