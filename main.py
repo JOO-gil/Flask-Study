@@ -1,4 +1,5 @@
 
+
 from flask import Flask, render_template, request, redirect, url_for
 
 
@@ -35,10 +36,12 @@ def write_post():
         return render_template('write.html', error=ERROR_EMPTY)
         # simple error massage
 
+
     posts.append({
         'id':       len(posts) + 1,
         'title':    title,
         'content':  content
+
     })  # add post
 
     return redirect(url_for('board'))  # back to board
