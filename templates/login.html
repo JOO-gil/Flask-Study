@@ -23,12 +23,20 @@
 
     <form method="POST">
       <label> Username: </label><br />
-      <input type="text" name="username" required /><br /><br />
+      <input type="text" name="username" /><br /><br />
 
       <label> Password: </label><br />
-      <input type="password" name="password" required /><br /><br />
+      <input type="password" name="password" /><br /><br />
 
       <button type="submit">LOGIN</button>
     </form>
+
+    <!-- Show register link only if login failed -->
+    {% if error %}
+    <p style="color: gray">
+      Don't have an account?
+      <a href="{{ url_for('register') }}">Register here</a>
+    </p>
+    {% endif %}
   </body>
 </html>

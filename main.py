@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
+from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
 
 app = Flask(__name__)
 # Set secret key for login session
@@ -37,6 +37,7 @@ def board():
     return render_template('board.html', posts=posts)  # list posts
 
 @app.route('/write', methods=['GET'])
+@login_required
 def write_form():
     return render_template('write.html', error=None) # show form
 
@@ -74,12 +75,12 @@ def register():
 
         # Check if fields are empty
         if not username or not password:
-            return render_template('register.html', error="Please enter all fields")
+            return render_template('register.html', error="❗Please enter all fields")
         
         # Check if username is already taken
         for u in users.values():
             if u.username == username:
-                return render_template('register.html', error="The username already exists")
+                return render_template('register.html', error="❗The username already exists")
 
         # Save new user
         user_id = len(users) + 1
@@ -103,18 +104,35 @@ def login():
         username = request.form.get('username', '').strip()
         password = request.form.get('password', '').strip()
 
+        # Check if fields are empty
+        if not username or not password:
+            flash("❗Please enter all fields", "error")
+            return render_template("login.html")
+
         # Check if user info is correct
         for user in users.values():
             if user.username == username and user.password == password:
                 login_user(user)
                 flash('✅ Login successful', 'success')
-                return redirect(url_for('board'))
+
+                # Redirect to the original page
+                next_page = request.args.get('next')
+                return redirect(next_page or url_for('board'))
 
         # If login failed
         flash('❌ Invalid username or password', 'error')
+        return render_template('login.html', error=True)
 
     # Show login form
-    return render_template('login.html')
+    return render_template('login.html', error=False)
+
+# Log out and redirect to login page
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash("Logged out successfully", "success")
+    return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
