@@ -1,9 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
+from extensions import db, login_manager
+from models import User
 
 app = Flask(__name__)
 # Set secret key for login session
 app.secret_key = "my_secret_key"
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)
+
+
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -134,9 +143,17 @@ def logout():
     flash("Logged out successfully", "success")
     return redirect(url_for('login'))
 
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASEURI'] = f"sqlite:///{os.path.join(basedir, 'site.db')}"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    
+    print("현재 작업 디렉토리:", os.getcwd())
+    print("site.db 존재 여부", os.path.exists(os.path.join(basedir, 'site.db')))
 
-
-
+    with app.app_context():
+        print("등록된 테이블 목록:", db.metadata.tables.keys())
+        db.create_all()
+    
+    app.run(host='0.0.0.0', port=5001, debug=True)
